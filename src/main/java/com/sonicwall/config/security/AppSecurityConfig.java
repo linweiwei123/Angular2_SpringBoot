@@ -9,6 +9,10 @@ import org.springframework.security.web.util.matcher.RegexRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.core.annotation.Order;
 
+// For providing web console to H2 Database
+//import org.h2.server.web.WebServlet;
+//import org.springframework.boot.context.embedded.ServletRegistrationBean;
+
 //Manually Added
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,6 +38,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
         super(true);
     }
     
+
 	@Override 
     protected void configure(HttpSecurity http) throws Exception {
       http
@@ -48,6 +53,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
         , "/webjars/springfox-swagger-ui/**"
         , "/login" , "/session"
         , "/home"
+        , "/console/*"
         , "/webui/**"
         , "/**/*.html" ,"/**/*.css","/**/*.js","/**/*.png","/**/*.ttf","/**/*.woff").permitAll()
         // All other request need to be authenticated
@@ -65,6 +71,16 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
+
+    // This is to provide a Web based console for H2 database available at path /console
+    /*
+    @Bean
+    ServletRegistrationBean h2servletRegistration(){
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
+        registrationBean.addUrlMappings("/console/*");
+        return registrationBean;
+    }
+    */
     
     
 }

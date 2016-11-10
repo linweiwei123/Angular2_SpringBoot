@@ -24,6 +24,7 @@ public class UserDetailsService implements org.springframework.security.core.use
 
     @Override
     public final TokenUser loadUserByUsername(String username) throws UsernameNotFoundException, DisabledException {
+        
         final User user = userRepo.findOneByUserName(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
         TokenUser currentUser;
         if (user.getPendingActivation() == false){
@@ -50,34 +51,11 @@ public class UserDetailsService implements org.springframework.security.core.use
       return auth.getName();
     }
 
-    public User getLoggedInUser(){
-      String userName = this.getLoggedInUserName();
-      //User u = new User();
-      //User u2= new User();
-      //Optional objUser = Optional.of(u);
-      System.out.format("\nInside >> getLoggedInUser: %s", userName);
-      final User user = userRepo.findOneByUserName(userName).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-      //objUser = userRepo.findOneByUserName(userName);
-      System.out.format("\nAfter Find User: %s", userName);
-      /*
-      if(objUser.isPresent()) {
-          System.out.format("\nUserName is Present :");
-        u2 = (User)objUser.get();
-      }
-      else{
-         System.out.format("\nUserName Not found : %s", userName);    
-      }
-      */
-      
-      System.out.format("\nCurrent UserName : %s", userName);
-      System.out.format("\nUser object: UserName > %s, Company > %s", user.getUserName(), user.getCompany());
-
-      return user;
-    }
-
+    /*
     public String getLoggedInUserRoles(){
       Authentication auth = SecurityContextHolder.getContext().getAuthentication();
       return auth.getName();
     }
+    */
 
 }

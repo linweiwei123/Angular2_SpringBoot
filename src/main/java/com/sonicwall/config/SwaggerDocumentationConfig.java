@@ -79,9 +79,9 @@ public class SwaggerDocumentationConfig {
         return new ApiKey("Authorization", "", "header");             // <<< === Create a Heaader (We are createing header named "Authorization" here)
     }
 
-    //Dont want to provide any authentication to /login api
+    //Dont want to provide any authentication to /session api
     private SecurityContext securityContext() { 
-        return SecurityContext.builder().securityReferences(defaultAuth()).forPaths(ant("/login")).build();
+        return SecurityContext.builder().securityReferences(defaultAuth()).forPaths(ant("/session")).build();
     } 
  
     

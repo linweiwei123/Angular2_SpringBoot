@@ -17,6 +17,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import com.sonicwall.model.security.User;
 import com.sonicwall.model.security.Role;
@@ -27,6 +29,8 @@ import com.sonicwall.SeedData;
 @SpringBootApplication
 @EnableSwagger2
 @ComponentScan(basePackages = "com.sonicwall")
+@EnableJpaRepositories(basePackages ={ "com.sonicwall.repo"})
+@EntityScan(basePackages ={ "com.sonicwall.model"})
 public class EmailSecurityApp implements CommandLineRunner {
 
 	@Override
@@ -64,9 +68,7 @@ public class EmailSecurityApp implements CommandLineRunner {
 				sd.insertDefaultUsers(userRepository);
 				sd.insertNotificationPref(notificationPreferenceRepo);
 				System.out.println("\n------------------------------------");
-
 			}
-
 		};
     }
 	
