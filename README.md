@@ -19,10 +19,10 @@ Localization      | <Pending>
 
 ## Build Instruction
 Prerequisite 
-1. Java 8
-2. Maven 3.3.9
-3. Node 6.2.2, npm 3.9.5
-4. Angular-cli
+- Java 8
+- Maven 3.3.9
+- Node 6.2.2, npm 3.9.5
+- Angular-cli
 
 Clone the repo in a folder
 navigate to the folder where pom.xml is present 
