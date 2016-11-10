@@ -1,0 +1,36 @@
+<div class="s-alerts"  
+     [ngStyle]="{
+        'width':width+'px'
+     }"
+>
+  <div *ngIf="showHeader" class="s-alerts-hbar">
+    <span class="s-alerts-left-icon fa fa-chevron-left s-f-medium" 
+      (click)="leftIconClick()" 
+      [ngStyle]="{
+          'width':headerLeftIconWidth+'px'
+      }"
+    > </span>
+    <span class="s-alerts-text s-f-small"> {{headerText}}  </span>
+    <span class="s-alerts-right-icon fa fa-gear s-f-medium"
+     (click)="rightIconClick()" 
+     [ngStyle]="{
+        'width':headerRightIconWidth+'px'
+     }"
+     > </span>
+  </div>
+
+  <div class="s-alerts-body">
+    <div class="s-alerts-page1">
+        <button md-raised-button color="primary">Page 1</button>
+    </div>
+    <div class="s-alerts-page2" [ngStyle]="{'left':page2Left}">
+       <button md-raised-button color="primary">Page 2</button>
+    </div>
+  </div>  
+
+  <div *ngIf="showFooter" class="s-alerts-fbar">
+    <span class="s-alerts-left-icon"> </span>
+    <span class="s-alerts-text s-f-small">{{footerText}}  </span>
+    <span class="s-alerts-right-icon"> </span>
+  </div>
+</div>

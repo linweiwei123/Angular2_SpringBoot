@@ -1,0 +1,50 @@
+@import '../../../../assets/scss/var/var';
+.s-alerts{
+  box-sizing:border-box;
+  height:100%;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  flex-wrap:nowrap;
+  justify-content: flex-start;
+  overflow:hidden;
+  
+  .s-alerts-hbar, .s-alerts-fbar{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items:center;
+    justify-content:start;
+    border: 1px solid black;
+    background:#333;
+    color:#fff;
+    height:40px;
+  }
+  .s-alerts-left-icon, .s-alerts-right-icon{
+    margin:5px 10px;
+    overflow:hidden;
+    cursor:pointer;
+    transition: width 0.3s;
+  }
+  .s-alerts-text{
+    flex:1;
+    line-height:40px;
+    overflow:hidden;
+  }
+  .s-alerts-body{
+    display:flex;
+    flex-direction:row;
+    flex:1;
+    position:relative;
+    align-items: stretch;
+  }
+  
+  .s-alerts-page1, .s-alerts-page2{
+    position:absolute;
+    width:100%;
+    padding:5px;
+    border: 1px solid blue;
+    transition: left 0.3s;
+  }
+  
+}
