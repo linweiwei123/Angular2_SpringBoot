@@ -58,7 +58,7 @@ npm install
 
 ### Running the app
 
-** Server: ** served from port 9119
+**Server:** served from port 9119
 to start the server go to the folder where pom.xml is present
 
 ```bash
@@ -69,7 +69,7 @@ mvn clean install
 java -jar ./target/sonicwall-1.0.0.jar
 ```
 
-** Client: ** served from port 4200
+**Client:** served from port 4200
 open another terminal and navigate to client folder 
 
 ```bash
@@ -83,15 +83,17 @@ npm install
 ng serve
 ```
 
-Access Server at http://localhost:9119/index.html
-Access Client at http://localhost:4200
+- Access Server at <http://localhost:9119/index.html>
+- Access Client at <http://localhost:4200>
 
-** Login Credentials **
+**Login Credentials**
+```
 demo:demo
 admin:admin
 inactive:inactive
+```
 
-** To get an authentication token ** 
+**To get an authentication token** 
 
 ```bash
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"username": "demo", "password": "demo" }' 'http://localhost:9119/session'
