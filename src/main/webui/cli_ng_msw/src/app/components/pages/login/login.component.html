@@ -8,7 +8,7 @@
             <md-hint *ngIf="f.submitted && !username.valid" class="s-err-msg" align="start">Username is required</md-hint>
           </md-input>
           <br/>
-          <md-input placeholder="Password (demo)" name="password" [(ngModel)]="model.password" #password="ngModel" required>
+          <md-input type="password" placeholder="Password (demo)" name="password" [(ngModel)]="model.password" #password="ngModel" required>
             <md-hint *ngIf="f.submitted && !password.valid" class="s-err-msg" align="start">Password is required</md-hint>
           </md-input>
           <br/><br/>
