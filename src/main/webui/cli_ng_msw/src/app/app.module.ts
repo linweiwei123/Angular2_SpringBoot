@@ -67,7 +67,7 @@ import 'hammerjs';
   providers:[
     AuthGuard,
     LoginService,
-    {provide: 'api', useValue: 'http://localhost:9119/'}
+    {provide: 'api', useValue: 'http://' + window.location.hostname + ':9119/' }
   ],
 
   bootstrap: [AppComponent]

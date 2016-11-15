@@ -17,9 +17,9 @@ export class AlertsComponent implements OnInit {
 @Input() footerLeftIconWidth : number=0;
 @Input() footerRightIconWidth: number=0;
 @Input() page1Left:string = "0";
-@Input() page2Left:string = "-300px";
-public page2Width="0";
 
+page2Left:string  = (this.width * -1) + "px";
+page2Width:string = this.width + "px";
 
   constructor() { }
 
@@ -30,18 +30,13 @@ public page2Width="0";
     this.headerText= "Alerts";
     this.headerLeftIconWidth=0;
     this.headerRightIconWidth=25;
-    this.page2Width="0";
-
-    //this.page2Left="-"+(this.width+20) +"px";
-    //this.page1Left="0";
+    this.page2Left = (this.width)  + "px";
   }
 
   rightIconClick(){
     this.headerLeftIconWidth=25;
     this.headerRightIconWidth=0;
-    //this.page2Left="0";
-    //this.page1Left="-"+(this.width+20) +"px";
-    this.page2Width="300px";
+    this.page2Left="0";
     this.headerText= "Notification Preferences";
   }
 
