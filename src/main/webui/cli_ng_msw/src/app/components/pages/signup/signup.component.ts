@@ -18,7 +18,7 @@ export class SignupComponent  implements OnInit {
 
   @Input() public wizSteps: ItemDescrModel[];
 
-  public invitedByCompanyName = "Walmart";
+  public invitedByCompanyName = "[Company Name]";
   public invitedByCompanyPhone= "000-000-0000";
 
   constructor(private router:Router, private formBuilder: FormBuilder) {

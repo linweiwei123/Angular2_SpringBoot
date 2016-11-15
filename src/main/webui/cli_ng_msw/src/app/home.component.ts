@@ -47,4 +47,8 @@ export class HomeComponent   {
     this.openRightDraw = !this.openRightDraw;
   }
 
+  onLogout(event){
+    localStorage.clear();
+    window.location.href = '/index.html';
+  }
 }

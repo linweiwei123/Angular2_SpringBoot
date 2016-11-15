@@ -4,11 +4,11 @@
         <div class="s-login-pg-form-inputs">
           <label> Please login to access the page you requested </label>
           <br/>
-          <md-input placeholder="Username" name="username" [(ngModel)]="model.username" #username="ngModel" required>
+          <md-input placeholder="Username (demo)" name="username" [(ngModel)]="model.username" #username="ngModel" required>
             <md-hint *ngIf="f.submitted && !username.valid" class="s-err-msg" align="start">Username is required</md-hint>
           </md-input>
           <br/>
-          <md-input placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" required>
+          <md-input placeholder="Password (demo)" name="password" [(ngModel)]="model.password" #password="ngModel" required>
             <md-hint *ngIf="f.submitted && !password.valid" class="s-err-msg" align="start">Password is required</md-hint>
           </md-input>
           <br/><br/>

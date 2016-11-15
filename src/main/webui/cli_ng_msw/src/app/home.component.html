@@ -7,8 +7,9 @@
     <span style="flex:1"></span>
 
     <s-pill [size]="'medium'" [text]="Test"   [iconAlign]="'left'" [color]="'#63666A'" [hideText]="true"  [spread]="false" [rounded]="'true'" [iconCls]="'fa fa-question fa-lg'"></s-pill>
-    <s-pill [size]="'medium'" [text]="Test"   [iconAlign]="'left'" [color]="'#63666A'" [hideText]="true"  [spread]="false" [rounded]="'true'" [iconCls]="'fa fa-bell fa-lg'" (click)="onAlertClick($event)" ></s-pill>
-    <s-pill [size]="'medium'" [text]="'Mrin'" [iconAlign]="'right'" [color]="'#63666A'" [hideText]="false" [spread]="false" [rounded]="'true'" [iconCls]="'fa fa-chevron-down fa-lg'"></s-pill>
+    <s-pill [size]="'medium'" [text]="Test"   [iconAlign]="'left'" [color]="'#63666A'" [hideText]="true"  [spread]="false" [rounded]="'true'" [iconCls]="'fa fa-bell fa-lg'" (click)="onAlertClick($event)"  md-tooltip="Alerts" tooltip-position="below" ></s-pill>
+    <s-pill [size]="'medium'" [text]="Test"   [iconAlign]="'left'" [color]="'#63666A'" [hideText]="true"  [spread]="false" [rounded]="'true'" [iconCls]="'fa fa-power-off fa-lg'" (click)="onLogout($event)" md-tooltip="Logout" tooltip-position="below"> </s-pill>
+    <s-pill [size]="'medium'" [text]="'Mrin'" [iconAlign]="'right'" [color]="'#63666A'" [hideText]="false" [spread]="false" [rounded]="'true'" [iconCls]="'fa fa-user fa-lg'"></s-pill>
   </md-toolbar>
   <router-outlet></router-outlet>
 
