@@ -9,7 +9,7 @@ export class AlertsComponent implements OnInit {
   @Input() width: number=300;
   @Input() showHeader: boolean=true;
   @Input() showFooter: boolean=false;
-  @Input() headerText: string ="";
+  @Input() headerText: string ="Alerts";
   @Input() footerText: string="";
 
 @Input() headerLeftIconWidth : number=0;
@@ -18,7 +18,7 @@ export class AlertsComponent implements OnInit {
 @Input() footerRightIconWidth: number=0;
 @Input() page1Left:string = "0";
 @Input() page2Left:string = "-300px";
-
+public page2Width="0";
 
 
   constructor() { }
@@ -27,17 +27,22 @@ export class AlertsComponent implements OnInit {
   }
 
   leftIconClick(){
+    this.headerText= "Alerts";
     this.headerLeftIconWidth=0;
     this.headerRightIconWidth=25;
-    this.page2Left="-"+(this.width+20) +"px";
-    this.page1Left="0";
+    this.page2Width="0";
+
+    //this.page2Left="-"+(this.width+20) +"px";
+    //this.page1Left="0";
   }
 
   rightIconClick(){
     this.headerLeftIconWidth=25;
     this.headerRightIconWidth=0;
-    this.page2Left="0";
-    this.page1Left="-"+(this.width+20) +"px";
+    //this.page2Left="0";
+    //this.page1Left="-"+(this.width+20) +"px";
+    this.page2Width="300px";
+    this.headerText= "Notification Preferences";
   }
 
 }

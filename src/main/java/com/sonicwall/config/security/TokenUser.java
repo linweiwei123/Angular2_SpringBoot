@@ -19,9 +19,11 @@ public class TokenUser extends org.springframework.security.core.userdetails.Use
         return user;
     }
 
+    /*
     public Long getId() {
         return user.getId();
     }
+    */
 
     public Role getRole() {
         return user.getRole();

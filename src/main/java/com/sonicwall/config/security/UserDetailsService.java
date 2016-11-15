@@ -38,24 +38,4 @@ public class UserDetailsService implements org.springframework.security.core.use
         detailsChecker.check(currentUser);
         return currentUser;
     }
-
-    // Custom Methods
-    public User getUserInfoByUserName(String userName){
-        Optional objUser = Optional.of(new User());
-        objUser = userRepo.findOneByUserName(userName);
-        return (User)objUser.get();
-    }
-
-    public String getLoggedInUserName(){
-      Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-      return auth.getName();
-    }
-
-    /*
-    public String getLoggedInUserRoles(){
-      Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-      return auth.getName();
-    }
-    */
-
 }

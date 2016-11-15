@@ -14,6 +14,9 @@ $s-f-small-size : 16px;
 $s-f-medium-size: 24px;
 $s-f-large-size : 32px;
 
+$s-c-color1:rgb(246,167,55);
+$s-c-color2:rgb(20,73,113);
+$s-c-color3:rgb(242,83,18);
 
 
 //************ Theme Properties ******************
@@ -39,7 +42,7 @@ $s-c-soft-white   : whitesmoke;
 $s-c-soft-blue    : #2eadf5;
 $s-c-soft-red     : #e44959;
 $s-c-soft-green   : #9cc96b;
-$s-c-purple       : #91489e;
+$s-c-purple       : rgb(134,0,82);// #91489e;
 
 //Text Colors
 $s-c-text         : #333;  // Main Text color used in most places

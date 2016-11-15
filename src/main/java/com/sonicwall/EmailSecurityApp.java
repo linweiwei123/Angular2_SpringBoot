@@ -57,16 +57,13 @@ public class EmailSecurityApp implements CommandLineRunner {
     public InitializingBean insertDefaultUsers() {
 		return new InitializingBean() {
 			@Autowired
-			private UserRepository userRepository;
-			@Autowired
-			private NotificationPreferenceRepo notificationPreferenceRepo;
+			private SeedData seedData;
 			
 			public void afterPropertiesSet() throws Exception {
-				SeedData sd = new SeedData();
 				System.out.println("\n------------------------------------");
 				System.out.println("[ *** Mrin *** ]: Initializing data\n");
-				sd.insertDefaultUsers(userRepository);
-				sd.insertNotificationPref(notificationPreferenceRepo);
+				seedData.insertDefaultUsers();
+				seedData.insertNotificationPref();
 				System.out.println("\n------------------------------------");
 			}
 		};

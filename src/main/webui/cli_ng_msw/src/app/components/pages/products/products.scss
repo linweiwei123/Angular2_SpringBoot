@@ -4,23 +4,29 @@
   width :100%;
   height:100%;
   background-color: $s-c-soft-white;
-  .s-prod-head{
+  .s-head{
     height: 100px;
     width : 100%;
+    display:flex;
+    align-content: center;
+    align-items:center;
     background-color: $s-c-purple;
+    font-size:$s-f1-size;
+    padding-left:20px;
+    color:$s-c-soft-white ;
   }
-  .s-prod-body{
+  .s-body{
     display:flex;
     width :100%;
     height:100%;
     padding:16px;
     align-items:stretch;
 
-    .s-prod-left{
+    .s-left{
 
 
     }
-    .s-prod-content{
+    .s-content{
       padding: 0 0 0 16px;
 
     }

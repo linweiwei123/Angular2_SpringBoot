@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import com.sonicwall.api.UserInfoService;
 // User Model and Repo
 import com.sonicwall.model.security.User;
 import com.sonicwall.model.security.Role;
@@ -17,41 +18,51 @@ import com.sonicwall.repo.msw.NotificationPreferenceRepo;
 @Service
 public final class SeedData {
 
-	//Users
-	public void insertDefaultUsers(
-		UserRepository userRepo) {
-		System.out.println("[ *** Mrin *** ]: Adding Users");
-		addUser(userRepo, "admin"  , "admin");
-		addUser(userRepo, "user"   , "user");
-		addUser(userRepo, "demo"   , "demo");
-		addUser(userRepo, "inactive", "inactive");
+	@Autowired
+	private UserInfoService userInfoService;
+	//private UserRepository userRepo;
 
-		addUser(userRepo, "nitinsw", "pwd4dev");
+	@Autowired
+	private NotificationPreferenceRepo notificationPreferenceRepo;
+
+	//Users
+	public void insertDefaultUsers() {
+		System.out.println("[ *** Mrin *** ]: Adding Users");
+		this.addUser("admin"  , "admin");
+		this.addUser("user"   , "user");
+		this.addUser("demo"   , "demo");
+		this.addUser("inactive", "inactive");
+		this.addUser("nitinsw", "pwd4dev");
 	}
-	private void addUser(UserRepository userRepo, String username, String password) {
-		User user = new User();
+	private void addUser(String username, String password) {
+		Role role = username.equals("admin") ? Role.ADMIN: Role.USER;
+		boolean isPendingActivation = username.equals("inactive") ? true: false;
+		User user = new User(username, password, role , username, username, isPendingActivation );
+		/*
 		user.setUserName(username);
 		user.setPassword(new BCryptPasswordEncoder().encode(password));
 		user.setRole(username.equals("admin") ? Role.ADMIN: Role.USER);
 		user.setCompany("sonicwall");
 		user.setPendingActivation(username.equals("inactive")?true:false);
-		userRepo.save(user);
+		*/
+		userInfoService.addUser(user);
+		//this.userRepo.save(user);
 	}
 
 	//Notification Preferences
-	public void insertNotificationPref(NotificationPreferenceRepo notificationPrefRepo){
+	public void insertNotificationPref(){
 		System.out.println("[ *** Mrin *** ]: Adding Notification Preferences for users");
-		addNotificationPreferences(notificationPrefRepo, "admin");
-		addNotificationPreferences(notificationPrefRepo, "nitinsw");
-		addNotificationPreferences(notificationPrefRepo, "demo");
+		this.addNotificationPreferences("admin");
+		this.addNotificationPreferences("nitinsw");
+		this.addNotificationPreferences("demo");
 	}
-	private void addNotificationPreferences(NotificationPreferenceRepo notificationPrefRepo, String username ) {
+	private void addNotificationPreferences(String username ) {
 		Integer i;
 		for (i=1;i<=8;i++){
 			NotificationPreferenceModel notificationPrefModel = new NotificationPreferenceModel();
 			notificationPrefModel.setUsername(username);
 			notificationPrefModel.setNotifyTypeId(i.toString());
-			notificationPrefRepo.save(notificationPrefModel);
+			this.notificationPreferenceRepo.save(notificationPrefModel);
 		}
 	}
 	
