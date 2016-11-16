@@ -43,17 +43,18 @@ cd ./src/main/webui/cli_ng_msw
 Install/Upgrade angular-cli Global package:
 
 ```bash
-npm uninstall -g angular-cli
+# below command is needed only if you have installed angular-cli previously
+sudo npm uninstall -g angular-cli
 npm cache clean
-npm install -g angular-cli@latest
+sudo npm install -g angular-cli@latest
 ```
 
 Local project package:
 
 ```bash
 rm -rf node_modules dist tmp
-npm install --save-dev angular-cli@latest
-npm install
+sudo npm install --save-dev angular-cli@latest
+sudo npm install
 ```
 
 ### Running the app
@@ -65,8 +66,8 @@ to start the server go to the folder where pom.xml is present
 # build: if no already build 
 mvn clean install
 
-# Start the server
-java -jar ./target/sonicwall-1.0.0.jar
+# Start the server (as background process)
+nohup java -jar ./target/sonicwall-1.0.0.jar &
 ```
 
 ** Client: ** served from port 4200
@@ -79,8 +80,8 @@ cd ./src/main/webui/cli_ng_msw
 # build the client if not already built
 npm install
 
-# Start the client
-ng serve
+# Start the client (in production mode and as background process)
+nohup ng serve --host 0.0.0.0 --prod &
 ```
 
 Access Server at http://localhost:9119/index.html
