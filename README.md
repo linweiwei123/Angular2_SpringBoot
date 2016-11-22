@@ -18,7 +18,7 @@ Localization      | <Pending>
 
 
 ## Build Instruction
-Prerequisite 
+Prerequisite (Ensure you have this installed before proceeding further)
 - Java 8
 - Maven 3.3.9
 - Node 6.2.2, npm 3.9.5
