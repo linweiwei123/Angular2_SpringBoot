@@ -16,7 +16,7 @@
 		<version>1.4.2.RELEASE</version>
 	</parent>
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
+		<sourceDirectory>api_src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -64,12 +64,13 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.0.1</version>
+
 				<executions>
-					<execution>
+				<!-- No Need to copy dist folder to public, we are using webpack as our main UI server
+        	<execution>
 						<id>copy-angular</id>
 						<phase>prepare-package</phase>
 						<goals>
@@ -77,14 +78,14 @@
 						</goals>
 						<configuration>
 							<outputDirectory>${project.build.outputDirectory}/public</outputDirectory>
-							<resources>          
+							<resources>
 								<resource>
-									<directory>${project.basedir}/src/main/webui/cli_ng_msw/dist</directory>
+									<directory>${project.basedir}/webui_src/dist</directory>
 								</resource>
-							</resources>              
-						</configuration>            
+							</resources>
+						</configuration>
 					</execution>
-
+          -->
 					<execution>
 						<id>copy-swagger</id>
 						<phase>prepare-package</phase>
@@ -93,12 +94,12 @@
 						</goals>
 						<configuration>
 							<outputDirectory>${project.build.outputDirectory}/public</outputDirectory>
-							<resources>          
+							<resources>
 								<resource>
-									<directory>${project.basedir}/src/main/resources/public</directory>
+									<directory>${project.basedir}/api_src/main/resources/public</directory>
 								</resource>
-							</resources>              
-						</configuration>            
+							</resources>
+						</configuration>
 					</execution>
 
 					<execution>
@@ -109,15 +110,15 @@
 						</goals>
 						<configuration>
 							<outputDirectory>${project.build.outputDirectory}/public/redoc</outputDirectory>
-							<resources>          
+							<resources>
 								<resource>
 									<directory>${project.build.directory}</directory>
 									<includes>
-                						<include>*.js</include>
-            						</includes>
+                	  <include>*.js</include>
+            			</includes>
 								</resource>
-							</resources>              
-						</configuration>            
+							</resources>
+						</configuration>
 					</execution>
 
 				</executions>
@@ -150,7 +151,7 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox-version}</version>
 		</dependency>
-		
+
 		<!-- Manually Added  -->
 		 <dependency>
     		<groupId>org.springframework.boot</groupId>

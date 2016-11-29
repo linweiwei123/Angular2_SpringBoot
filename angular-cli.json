@@ -1,11 +1,11 @@
 {
   "project": {
     "version": "1.0.0-beta.18",
-    "name": "cli-ng-msw"
+    "name": "SonicWALL WebUI"
   },
   "apps": [
     {
-      "root": "src",
+      "root": "webui_src",
       "outDir": "dist",
       "assets": [
         "assets",
