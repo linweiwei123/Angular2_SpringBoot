@@ -61,12 +61,18 @@ public class UserInfo {
 
 	@ApiOperation(value = "Add new user", response = BaseResponse.class)
 	@RequestMapping(value = "/user", method = RequestMethod.POST, produces = {"application/json"})
-	public BaseResponse addUser(@RequestBody User user, HttpServletRequest req) {
-		boolean userAddSuccess = userInfoService.addUser(user);
+	public BaseResponse addNewUser(@RequestBody User user, HttpServletRequest req) {
+		boolean userAddSuccess = userInfoService.addNewUser(user);
 		BaseResponse resp = new BaseResponse();
-		resp.setSuccess(true);
-		resp.setMsgKey("SUCCESS");
-		resp.setMsg("User Added");
+		resp.setSuccess(userAddSuccess);
+		if (userAddSuccess==true){
+			resp.setMsgKey("SUCCESS");
+			resp.setMsg("User Added");
+		}
+		else{
+			resp.setMsgKey("ERROR");
+			resp.setMsg("Unable to add user");
+		}
 		return resp;
 	}
 

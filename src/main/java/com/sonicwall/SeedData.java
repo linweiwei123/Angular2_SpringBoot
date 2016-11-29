@@ -34,19 +34,12 @@ public final class SeedData {
 		this.addUser("inactive", "inactive");
 		this.addUser("nitinsw", "pwd4dev");
 	}
+
 	private void addUser(String username, String password) {
 		Role role = username.equals("admin") ? Role.ADMIN: Role.USER;
 		boolean isPendingActivation = username.equals("inactive") ? true: false;
 		User user = new User(username, password, role , username, username, isPendingActivation );
-		/*
-		user.setUserName(username);
-		user.setPassword(new BCryptPasswordEncoder().encode(password));
-		user.setRole(username.equals("admin") ? Role.ADMIN: Role.USER);
-		user.setCompany("sonicwall");
-		user.setPendingActivation(username.equals("inactive")?true:false);
-		*/
-		userInfoService.addUser(user);
-		//this.userRepo.save(user);
+		userInfoService.insertOrSaveUser(user);
 	}
 
 	//Notification Preferences
