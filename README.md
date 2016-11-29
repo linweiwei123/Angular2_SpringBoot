@@ -25,20 +25,16 @@ Prerequisite (Ensure you have this installed before proceeding further)
 - Angular-cli
 
 Clone the repo in a folder
-navigate to the folder where pom.xml is present 
+
 
 ### Install REST Backend
 
 ```bash
+#navigate to the root folder where pom.xml is present 
 mvn clean install
 ```
 
 ### Install Frontend
-
-```bash
-# navigate to the client folder (the below command is relative to the folder where pom.xml is present) 
-cd ./src/main/webui/cli_ng_msw
-```
 
 Install/Upgrade angular-cli Global package:
 
@@ -51,6 +47,7 @@ npm install -g angular-cli@latest
 Local project package:
 
 ```bash
+#navigate to the root folder where package.json is present
 rm -rf node_modules dist tmp
 npm install --save-dev angular-cli@latest
 npm install
@@ -63,10 +60,11 @@ npm install
 to start the server go to the folder where pom.xml is present
 
 ```bash
-# build: if no already build 
+# build: should be executed from the folder where pom.xml is present 
 mvn clean install
 
-# Start the server
+# Start the server (runs on port 9119)
+# port and other configurations are inside ./cofig/application.properties file
 java -jar ./target/sonicwall-1.0.0.jar
 ```
 
@@ -75,14 +73,11 @@ java -jar ./target/sonicwall-1.0.0.jar
 open another terminal and navigate to client folder 
 
 ```bash
-# Navigate to client folder   
-cd ./src/main/webui/cli_ng_msw
-
-# build the client if not already built
+# build: should be executed from the folder where package.json is present 
 npm install
 
 # Start the client
-ng serve
+ng serve --host 0.0.0.0 --port 4200
 ```
 
 - Access Server at <http://localhost:9119/index.html>

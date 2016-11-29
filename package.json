@@ -1,0 +1,40 @@
+{
+  "name": "cli-ng-msw",
+  "version": "0.0.0",
+  "license": "MIT",
+  "angular-cli": {},
+  "scripts": {
+    "start": "ng serve --host 0.0.0.0 --port:4200",
+    "lint": "tslint \"src/**/*.ts\"",
+    "preinstall": "npm install -g angular-cli"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "2.2.0",
+    "@angular/compiler": "2.2.0",
+    "@angular/core": "2.2.0",
+    "@angular/forms": "2.2.0",
+    "@angular/http": "2.2.0",
+    "@angular/platform-browser": "2.2.0",
+    "@angular/platform-browser-dynamic": "2.2.0",
+    "@angular/material": "2.0.0-alpha.10",
+    "@angular/router": "~3.1.2",
+    "@types/hammerjs": "^2.0.33",
+    "core-js": "^2.4.1",
+    "hammerjs": "^2.0.8",
+    "rxjs": "5.0.0-beta.12",
+    "ts-helpers": "^1.1.1",
+    "zone.js": "^0.6.25",
+    "//": "devDependencies: CONTENT AFTER THIS BELONGS TO devDependencies. THIS IS DONE BECAUSE HEROKU DONT INSTALLS ANYTHING FROM devDependencies ",
+    "@types/jasmine": "^2.2.30",
+    "@types/node": "^6.0.42",
+    "angular-cli": "^1.0.0-beta.21",
+    "codelyzer": "1.0.0-beta.1",
+    "ts-node": "1.2.1",
+    "tslint": "3.13.0",
+    "typescript": "~2.0.3"
+
+  },
+  "devDependencies": {
+  }
+}
