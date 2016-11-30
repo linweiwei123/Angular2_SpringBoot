@@ -4,8 +4,9 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --host 0.0.0.0 port 4200",
-    "preinstall": "npm install -g angular-cli@latest"
+    "start": "http-server",
+    "preinstall": "npm install -g http-server",
+    "postinstall": "ng build && mv dist/* ."
   },
   "private": true,
   "dependencies": {
