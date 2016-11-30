@@ -25,7 +25,6 @@
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.25",
-    "//": "devDependencies: CONTENT AFTER THIS BELONGS TO devDependencies. THIS IS DONE BECAUSE HEROKU DONT INSTALLS ANYTHING FROM devDependencies ",
     "@types/jasmine": "^2.2.30",
     "@types/node": "^6.0.42",
     "angular-cli": "^1.0.0-beta.21",
