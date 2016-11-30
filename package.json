@@ -5,7 +5,6 @@
   "angular-cli": {},
   "scripts": {
     "start": "http-server",
-    "lint": "tslint \"src/**/*.ts\"",
     "preinstall": "npm install -g http-server",
     "postinstall": "ng build && mv dist/* ."
   },
