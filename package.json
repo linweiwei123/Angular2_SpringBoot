@@ -4,9 +4,10 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --host 0.0.0.0 --port:4200",
+    "start": "http-server",
     "lint": "tslint \"src/**/*.ts\"",
-    "preinstall": "npm install -g angular-cli"
+    "preinstall": "npm install -g http-server",
+    "postinstall": "ng build && mv dist/* ."
   },
   "private": true,
   "dependencies": {
@@ -32,8 +33,11 @@
     "codelyzer": "1.0.0-beta.1",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
-    "typescript": "~2.0.3"
-
+    "typescript": "2.0.2"
+  },
+  "engines": {
+    "node": "6.6.0",
+    "npm": "3.10.3"
   },
   "devDependencies": {
   }
