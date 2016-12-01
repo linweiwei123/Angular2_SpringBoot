@@ -5,7 +5,7 @@ import { HttpModule }     from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { RouterModule }   from '@angular/router';
 
-//Routing Module
+//Import Sub Modules in the app such as Routing Module
 import { AppRoutingModule } from './app-routing.module';
 
 

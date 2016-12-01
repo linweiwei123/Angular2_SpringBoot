@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     }
 
     onSignUp(){
-      this.router.navigate(['webui/signup']);
+      this.router.navigate(['signup']);
     }
 
 

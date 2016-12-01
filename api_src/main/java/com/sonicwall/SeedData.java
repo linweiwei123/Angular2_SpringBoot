@@ -58,7 +58,7 @@ public final class SeedData {
 			this.notificationPreferenceRepo.save(notificationPrefModel);
 		}
 	}
-	
+
 }
 
 

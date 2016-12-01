@@ -19,6 +19,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 import com.sonicwall.model.security.User;
 import com.sonicwall.model.security.Role;
@@ -27,6 +28,7 @@ import com.sonicwall.repo.msw.NotificationPreferenceRepo;
 import com.sonicwall.SeedData;
 
 @SpringBootApplication
+@EnableZuulProxy
 @EnableSwagger2
 @ComponentScan(basePackages = "com.sonicwall")
 @EnableJpaRepositories(basePackages ={ "com.sonicwall.repo"})
@@ -52,13 +54,13 @@ public class EmailSecurityApp implements CommandLineRunner {
 			return 10;
 		}
 	}
-		
+
 	@Bean
     public InitializingBean insertDefaultUsers() {
 		return new InitializingBean() {
 			@Autowired
 			private SeedData seedData;
-			
+
 			public void afterPropertiesSet() throws Exception {
 				System.out.println("\n------------------------------------");
 				System.out.println("[ *** Mrin *** ]: Initializing data\n");
@@ -68,7 +70,7 @@ public class EmailSecurityApp implements CommandLineRunner {
 			}
 		};
     }
-	
+
 }
 
 

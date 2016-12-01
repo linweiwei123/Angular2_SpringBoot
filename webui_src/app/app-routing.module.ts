@@ -14,10 +14,10 @@ import { PageNotFoundComponent }  from './components/pages/404/page-not-found.co
 
 const routes: Routes = [
   //Important: The sequence of path is important as the router go over then in sequential manner
-  { path: 'webui/login',  component: LoginComponent },
-  { path: 'webui/signup', component: SignupComponent },
+  { path: 'login',  component: LoginComponent  },
+  { path: 'signup', component: SignupComponent },
   {
-    path: 'webui/home',
+    path: 'home',
     component: HomeComponent,
     canActivate:[AuthGuard],
     children:[  // Children paths are appended to the parent path
@@ -25,14 +25,14 @@ const routes: Routes = [
         path:'', // Default path (if no deep path is specified for home component like webui/home then it will by default show ProductsComponent )
         children:[
           { path: '',  component: ProductsComponent  },
-          { path: 'products',  component: ProductsComponent,  data:{comp:'products'}  },
-          { path: 'customers', component: CustomersComponent, data:{comp:'customers'}},
-          { path: 'services',  component: ServicesComponent,  data:{comp:'services'}}
+          { path: 'products',  component: ProductsComponent,  data:[{comp:'products' }]},
+          { path: 'customers', component: CustomersComponent, data:[{comp:'customers'}]},
+          { path: 'services',  component: ServicesComponent,  data:[{comp:'services' }]}
         ]
       }
     ]
   },
-  { path: '', redirectTo: 'webui/home/products', pathMatch: 'full' },
+  { path: '', redirectTo: '/home/products', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 
 ];

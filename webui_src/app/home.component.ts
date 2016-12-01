@@ -17,6 +17,8 @@ export class HomeComponent   {
   public openRightDraw: boolean = false;
 
   constructor(private router:Router, private activeRoute:ActivatedRoute) {
+
+    // This block is to retrieve the data from the routes
     router.events
       .filter(event => event instanceof NavigationEnd)
       .map(_ => this.router.routerState.root)
@@ -26,8 +28,8 @@ export class HomeComponent   {
       })
       .flatMap(route => route.data)
       .subscribe(data => {
-        console.log(data);
-        this.selectedNavItem = data.comp;
+        console.log(data[0].comp);
+        this.selectedNavItem = data[0].comp
       });
   }
 

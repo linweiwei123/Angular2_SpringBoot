@@ -83,7 +83,7 @@ export class SignupComponent  implements OnInit {
     this.wizSteps[2].status="active";
   }
   gotoLogin(){
-    this.router.navigate(['webui/login']);
+    this.router.navigate(['login']);
   }
 
   finish(){

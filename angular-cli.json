@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "webui_src",
-      "outDir": "dist",
+      "outDir": "dist/webui",
       "assets": [
         "assets",
         "favicon.ico"
