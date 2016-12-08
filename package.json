@@ -4,9 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "lite-server",
-    "preinstall": "npm install -g lite-server",
-    "postinstall": "ng build"
+    "start": "ws"
   },
   "private": true,
   "dependencies": {
