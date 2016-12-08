@@ -7,6 +7,9 @@ seperate webservers from seperate ports.
 - WebUI server (port 3000)
 - Gateway (you can find gateway config at [config/application.properties](https://github.com/mrin9/Angular2_SpringBoot/blob/master/config/application.properties) file. In short the gateway redirects all the requests to port 3000 if the url starts with '/webui' else the request is processed at port 9119)
 
+##Architecture
+![diagram](https://github.com/mrin9/Angular2_SpringBoot/blob/master/arch.png)
+
 ### Technology Stack
 Component         | Technology
 ---               | ---
