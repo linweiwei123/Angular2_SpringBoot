@@ -41,57 +41,47 @@ Clone the repo in a folder
 mvn clean install
 ```
 
-### Install Frontend (if not yet installed)
+### Install Frontend 
 
-Install/Upgrade angular-cli Global package:
+**1. Install/Upgrade angular-cli  ((if not yet installed))**
 
 ```bash
+#Install as global package
 npm uninstall -g angular-cli
 npm cache clean
 npm install -g angular-cli@latest
-```
 
-Local project package:
-
-```bash
-#navigate to the root folder where package.json is present
+#Then install as local package (make sure you are in the same folder where package.json is)
 rm -rf node_modules dist tmp
 npm install --save-dev angular-cli@latest
-npm install
 ```
-### Install a static WebUI server (if not yet installed) 
+
+**2. Install a static WebUI server (if not yet installed)**
 we are using [local-web-server](https://github.com/75lb/local-web-server)
 ```bash
 #configuration for local-web-server is stored in .local-web-server.json
 npm install -g local-web-server
 ```
 
-### Running the app
-
-**Server:** @port 9119
-
-to start the server go to the folder where pom.xml is present
-
-```bash
-# build: should be executed from the folder where pom.xml is present 
-mvn clean install
-
-# Start the server (runs on port 9119)
-# port and other configurations are inside ./cofig/application.properties file
-java -jar ./target/sonicwall-1.0.0.jar
-```
-
-**Client:** @port 3000
-
-
+**3. Install the webui app**
 ```bash
 # Get and install all the packages 
 npm install
 # build the project (this will put the files under dist folder)
 ng build
+```
 
-# Start the client webserver (serve files from dist folder )
-ws 
+### Start the API and WebUI server ###
+```bash
+# Start API server (9119)
+# port and other configurations for API servere is in [./cofig/application.properties](https://github.com/mrin9/Angular2_SpringBoot/blob/master/config/application.properties) file
+java -jar ./target/sonicwall-1.0.0.jar
+
+
+# Start WebUI server (3000)
+# port and other configurations for WebUI servere is in [local-web-server.json](https://github.com/mrin9/Angular2_SpringBoot/blob/master/.local-web-server.json) 
+ws
+
 ```
 
 - Access Server at <http://localhost:9119/index.html>
