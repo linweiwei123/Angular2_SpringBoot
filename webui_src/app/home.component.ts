@@ -6,9 +6,9 @@ import { ItemDescrModel }   from './models/item-descr.model';
 
 
 @Component({
-  selector   : 'home-comp',
-  templateUrl: './home.component.html',
-  styleUrls  : ['./home.scss'],
+  selector : 'home-comp',
+  templateUrl: 'home.component.html',
+  styleUrls: ['home.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent   {
