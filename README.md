@@ -29,10 +29,17 @@ Localization      | <Pending>
 ## Build Instruction
 Prerequisite (Ensure you have this installed before proceeding further)
 - Java 8
-- Maven 3.3.9
-- Node 7.2.1, npm 3.9.5
-- Angular-cli
-- local-web-server ( install using `npm install -g local-web-server`)
+- Maven 3.3.9 (Ubuntu `sudo apt-get install maven`) 
+- npm 3.9.5, (Ubuntu `sudo apt-get install npm`) 
+- Node 7.2.1, 
+```bash
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+```
+
+- Angular-cli (install using `sudo npm install -g angular-cli@latest`)
+- local-web-server ( install using `sudo npm install -g local-web-server`)
 
 Clone the repo in a folder
 
