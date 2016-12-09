@@ -59,11 +59,11 @@ mvn clean install
 #Install as global package
 npm uninstall -g angular-cli
 npm cache clean
-npm install -g angular-cli@latest
+npm install -g angular-cli@1.0.0-beta.21
 
 #Then install as local package (make sure you are in the same folder where package.json is)
 rm -rf node_modules dist tmp
-npm install --save-dev angular-cli@latest
+npm install --save-dev angular-cli@1.0.0-beta.21
 ```
 
 **2. Install a static WebUI server (if not yet installed)**

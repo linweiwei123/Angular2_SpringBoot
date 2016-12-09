@@ -10,6 +10,7 @@
     "outDir": "../dist/out-tsc",
     "sourceMap": true,
     "target": "es5",
+    "typingOptions": { "enableAutoDiscovery": false, "include": [], "exclude": [] },
     "typeRoots": [
       "../node_modules/@types"
     ],
