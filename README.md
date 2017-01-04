@@ -1,15 +1,6 @@
 ## Angular 2 Frontent with SpringBoot (Java) Backend
 Application to demonstrate various parts of a service oriented RESTfull application. 
 
-This application adopts a microservice architecture. The api and the webui are served from 
-seperate webservers from seperate ports. 
-- API server (port 9119)
-- WebUI server (port 3000)
-- Gateway (you can find gateway config at [config/application.properties](https://github.com/mrin9/Angular2_SpringBoot/blob/master/config/application.properties) file. In short the gateway redirects all the requests to port 3000 if the url starts with '/webui' else the request is processed at port 9119)
-
-##Architecture
-![diagram](https://github.com/mrin9/Angular2_SpringBoot/blob/master/arch.png)
-
 ### Technology Stack
 Component         | Technology
 ---               | ---
@@ -30,7 +21,7 @@ Localization      | <Pending>
 Prerequisite (Ensure you have this installed before proceeding further)
 - Java 8
 - Maven 3.3.9 (Ubuntu `sudo apt-get install maven`) 
-- npm 3.9.5, (Ubuntu `sudo apt-get install npm`) 
+- npm 3.9.5,  (Ubuntu `sudo apt-get install npm`) 
 - Node 7.2.1, 
 ```bash
 sudo npm cache clean -f

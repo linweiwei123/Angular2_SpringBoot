@@ -69,7 +69,9 @@
 				<version>3.0.1</version>
 
 				<executions>
-				<!-- No Need to copy dist folder to public, we are using webpack as our main UI server
+				  <!-- Build Webui (Angular) This will work only if angular-cli is installed -->
+
+				  <!-- copy Webui dist folder to api's resource/public -->
         	<execution>
 						<id>copy-angular</id>
 						<phase>prepare-package</phase>
@@ -77,15 +79,16 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.outputDirectory}/public</outputDirectory>
+							<!-- outputDirectory>${project.build.outputDirectory}/public</outputDirectory -->
+              <outputDirectory>${project.basedir}/api_src/main/resources/public</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/webui_src/dist</directory>
+									<directory>${project.basedir}/dist</directory>
 								</resource>
 							</resources>
 						</configuration>
 					</execution>
-          -->
+
 					<execution>
 						<id>copy-swagger</id>
 						<phase>prepare-package</phase>
@@ -120,7 +123,6 @@
 							</resources>
 						</configuration>
 					</execution>
-
 				</executions>
 			</plugin>
 		</plugins>
