@@ -1,18 +1,17 @@
 package com.sonicwall.model;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.*;
 import lombok.*;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.Objects;
 
-@ApiModel(description = "")
+
+@Data //for getters and setters
 public class BaseResponse  {
-  
-  @ApiModelProperty(required = true) 
-  @Getter @Setter private Boolean success  = null;
-  @Getter @Setter private String  msgKey   = ""; // SUCCESS, ERROR, WARNING, NO_ACCESS
-  @Getter @Setter private String  msg      = "";
-  @Getter @Setter private String  locale   = "";
+  public enum ResponseStatusEnum {SUCCESS, ERROR, WARNING};
+
+  @ApiModelProperty(required = true)
+  private ResponseStatusEnum  msgType;
+
+  private String  msgKey;
+  private String  msg;
 }

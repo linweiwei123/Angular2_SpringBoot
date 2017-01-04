@@ -8,12 +8,11 @@ import com.sonicwall.model.*;
 import com.sonicwall.model.security.*;
 import javax.servlet.http.HttpServletRequest;
 import com.google.common.base.Strings;
-//import com.sonicwall.config.security.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import static com.sonicwall.model.BaseResponse.*;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
-import org.json.JSONException; 
+import org.json.JSONException;
 
 
 @RestController
@@ -35,11 +34,11 @@ public class UserInfo {
 		if (Strings.isNullOrEmpty(userNameParam)) {
 			provideUserDetails = true;
 			user = userInfoService.getLoggedInUser();
-		} 
+		}
 		else if (loggedInUserName.equals(userNameParam)) {
 			provideUserDetails = true;
 			user = userInfoService.getLoggedInUser();
-		} 
+		}
 		else {
 			//Check if the current user is superuser then provide the details of requested user
 			provideUserDetails = true;
@@ -48,10 +47,12 @@ public class UserInfo {
 
 		UserInfoResponse resp = new UserInfoResponse();
 		if (provideUserDetails) {
-			resp.setSuccess(true);
-		} 
+			//resp.setSuccess(true);
+      resp.setMsgType(ResponseStatusEnum.SUCCESS);
+		}
 		else {
-			resp.setSuccess(false);
+			//resp.setSuccess(false);
+      resp.setMsgType(ResponseStatusEnum.ERROR);
 			resp.setMsgKey("NO_ACCESS");
 		}
 		resp.setData(user);
@@ -64,12 +65,14 @@ public class UserInfo {
 	public BaseResponse addNewUser(@RequestBody User user, HttpServletRequest req) {
 		boolean userAddSuccess = userInfoService.addNewUser(user);
 		BaseResponse resp = new BaseResponse();
-		resp.setSuccess(userAddSuccess);
+		//resp.setSuccess(userAddSuccess);
 		if (userAddSuccess==true){
+      resp.setMsgType(ResponseStatusEnum.SUCCESS);
 			resp.setMsgKey("SUCCESS");
 			resp.setMsg("User Added");
 		}
 		else{
+      resp.setMsgType(ResponseStatusEnum.ERROR);
 			resp.setMsgKey("ERROR");
 			resp.setMsg("Unable to add user");
 		}

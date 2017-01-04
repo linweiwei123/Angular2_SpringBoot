@@ -7,11 +7,8 @@ import springfox.documentation.annotations.*;
 @ApiIgnore
 @Controller
 public class HomeController {
-	//@RequestMapping(value = "/")
-	@RequestMapping({ "/", "/webui/home", "/webui/login", "/webui/**", "/webui/**/*"})
+	@RequestMapping(value={"/","/webui"})
 	public String index() {
-		//return "redirect:swagger-ui.html"; //If you want to redirect to REST documentation
-		return "forward:index.html";
-
+		return "/webui/index.html";
 	}
 }

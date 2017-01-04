@@ -11,7 +11,6 @@ import com.sonicwall.repo.UserRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import org.springframework.context.annotation.Bean;
-//import com.sonicwall.model.security.User;
 import com.sonicwall.model.security.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

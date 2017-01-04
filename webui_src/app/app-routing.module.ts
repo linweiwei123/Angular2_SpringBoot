@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent  }       from './home.component';
 import { LoginComponent }       from './components/pages/login/login.component';
 
-import { ProductsComponent  }   from './components/pages/products/products.component';
-import { CustomersComponent }   from './components/pages/customers/customers.component';
-import { ServicesComponent  }   from './components/pages/services/services.component';
-import { SignupComponent }    from './components/pages/signup/signup.component';
+import { DashboardComponent }   from './components/pages/dashboard/dashboard.component';
+import { PolicyComponent    }   from './components/pages/policy/policy.component';
+import { IncidentsComponent }   from './components/pages/incidents/incidents.component';
+import { SettingsComponent  }   from './components/pages/settings/settings.component';
+
+import { SignupComponent    }   from './components/pages/signup/signup.component';
 
 import { AuthGuard } from './routing_guards/auth.guard';
 import { PageNotFoundComponent }  from './components/pages/404/page-not-found.component';
@@ -24,20 +26,21 @@ const routes: Routes = [
       {
         path:'', // Default path (if no deep path is specified for home component like webui/home then it will by default show ProductsComponent )
         children:[
-          { path: '',  component: ProductsComponent  },
-          { path: 'products',  component: ProductsComponent,  data:[{comp:'products' }]},
-          { path: 'customers', component: CustomersComponent, data:[{comp:'customers'}]},
-          { path: 'services',  component: ServicesComponent,  data:[{comp:'services' }]}
+          { path: '',  component: DashboardComponent  },
+          { path: 'dashboard',  component: DashboardComponent,  data:[{comp:'dashboard' }]},
+          { path: 'policy'   ,  component: PolicyComponent   ,  data:[{comp:'policy'}]},
+          { path: 'incidents',  component: IncidentsComponent,  data:[{comp:'incidents'}]},
+          { path: 'settings' ,  component: SettingsComponent ,  data:[{comp:'settings' }]}
         ]
       }
     ]
   },
-  { path: '', redirectTo: '/home/products', pathMatch: 'full' },
+  { path: '', redirectTo: '/home/dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 
 ];
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes, {useHash:true} )],
   exports: [ RouterModule ],
   declarations:[PageNotFoundComponent]
 })

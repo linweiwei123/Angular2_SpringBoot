@@ -4,7 +4,6 @@ import { Router,ActivatedRoute, NavigationEnd } from '@angular/router';
 import { LogoComponent }    from './components/logo/logo.component';
 import { ItemDescrModel }   from './models/item-descr.model';
 
-
 @Component({
   selector : 'home-comp',
   templateUrl: 'home.component.html',
@@ -34,9 +33,10 @@ export class HomeComponent   {
   }
 
   toolbarNavItems:ItemDescrModel[] = [
-    { itemId: 'products' , itemDescr: 'Products'  },
-    { itemId: 'customers', itemDescr: 'Customers' },
-    { itemId: 'services' , itemDescr: 'Services'  }
+    { itemId: 'dashboard' , itemDescr: 'Dashboard' },
+    { itemId: 'policy'    , itemDescr: 'Policy'    },
+    { itemId: 'incidents' , itemDescr: 'Incidents' },
+    { itemId: 'settings'  , itemDescr: 'Settings'  }
   ];
 
 

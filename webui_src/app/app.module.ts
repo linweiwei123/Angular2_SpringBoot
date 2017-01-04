@@ -21,9 +21,12 @@ import { AppFooterComponent } from './components/app-footer/app-footer.component
 import { HomeComponent }      from './home.component';
 import { LoginComponent }     from './components/pages/login/login.component';
 import { AlertsComponent }    from './components/pages/alerts/alerts.component';
-import { ProductsComponent }  from './components/pages/products/products.component';
-import { CustomersComponent } from './components/pages/customers/customers.component';
-import { ServicesComponent }  from './components/pages/services/services.component';
+
+import { DashboardComponent }   from './components/pages/dashboard/dashboard.component';
+import { PolicyComponent    }   from './components/pages/policy/policy.component';
+import { IncidentsComponent }   from './components/pages/incidents/incidents.component';
+import { SettingsComponent  }   from './components/pages/settings/settings.component';
+
 import { SignupComponent }    from './components/pages/signup/signup.component';
 
 
@@ -57,10 +60,12 @@ import 'hammerjs';
     LogoComponent,
     AppFooterComponent,
     LoginComponent,
-    ProductsComponent,
-    CustomersComponent,
-    ServicesComponent,
-    SignupComponent
+    SignupComponent,
+
+    DashboardComponent,
+    PolicyComponent,
+    IncidentsComponent,
+    SettingsComponent
 
   ],
 

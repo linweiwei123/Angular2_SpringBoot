@@ -8,23 +8,18 @@ import javax.validation.constraints.*;
 import java.util.EnumSet;
 @Entity
 public class User {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
-    //@Getter @Setter private Long id;
-
-    //private String username;
     @Id
     @Getter @Setter private String userName;
 
     @Getter @Setter private String firstName;
     @Getter @Setter private String lastName;
-    
+
     //@Size(min = 4, max = 30)
     @Getter @Setter private String password = "";
-    
+
     @Enumerated(EnumType.STRING)
     @Getter @Setter private Role role;
-    
+
     @JsonIgnore
     @Getter @Setter private Boolean pendingActivation=true;
 
@@ -59,8 +54,8 @@ public class User {
         this(userName, password, role, firstName, lastName, isPendingActivation, "", "", "", "", "", "", "", "", true, false);
     }
 
-    public User(String userName,       String password,     Role role,             String firstName, String lastName, boolean isPendingActivation, 
-         String company,        String phone,        String address1,       String address2,  String country,  String postal, 
+    public User(String userName, String password, Role role, String firstName, String lastName, boolean isPendingActivation,
+         String company, String phone, String address1, String address2, String country, String postal,
          String secretQuestion, String secretAnswer, boolean enableRenewal, boolean enableBetaTesting){
         this.setUserName(userName);
         this.setEmail(userName);
@@ -80,8 +75,5 @@ public class User {
         this.setEnableRenewal(enableRenewal);
         this.setEnableBetaTesting(enableBetaTesting);
     }
-
-
-
 
 }

@@ -9,10 +9,6 @@ import org.springframework.security.web.util.matcher.RegexRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.core.annotation.Order;
 
-// For providing web console to H2 Database
-//import org.h2.server.web.WebServlet;
-//import org.springframework.boot.context.embedded.ServletRegistrationBean;
-
 //Manually Added
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,12 +18,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 
-
 @Configuration
 @EnableWebSecurity
 @Order(1)
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -37,9 +32,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     public AppSecurityConfig() {
         super(true);
     }
-    
 
-	@Override 
+
+	@Override
     protected void configure(HttpSecurity http) throws Exception {
       http
         .exceptionHandling().and()
@@ -48,7 +43,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 		.csrf().disable()
         .authorizeRequests()
 		// Allow anonymous resource requests
-		.antMatchers("/", "/resources/**", "/statis/**", "/public/**" 
+		.antMatchers("/", "/resources/**", "/static/**", "/public/**"
         , "/configuration/**", "/swagger-ui/**",  "/swagger-ui-dark/**", "/swagger-ui-new/**", "/swagger-resources/**","/api-docs/**", "/v2/api-docs/**"
         , "/webjars/springfox-swagger-ui/**"
         , "/login" , "/session"
@@ -58,29 +53,18 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
         , "/**/*.html" ,"/**/*.css","/**/*.js","/**/*.png","/**/*.ttf","/**/*.woff").permitAll()
         // All other request need to be authenticated
         .anyRequest().authenticated().and()
-        // Allow CORS 
+        // Allow CORS
         .addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
-		// Custom Token based authentication based on the header previously given to the client
+		    // Custom Token based authentication based on the header previously given to the client
         .addFilterBefore(new TokenFilter(tokenAuthService), UsernamePasswordAuthenticationFilter.class)
         // custom JSON based authentication by POST of {"username":"<name>","password":"<password>"} which sets the token header upon authentication
         .addFilterBefore(new SessionFilter("/session", authenticationManager(), tokenAuthService), UsernamePasswordAuthenticationFilter.class)
         ;
     }
-      
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    // This is to provide a Web based console for H2 database available at path /console
-    /*
-    @Bean
-    ServletRegistrationBean h2servletRegistration(){
-        ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
-        registrationBean.addUrlMappings("/console/*");
-        return registrationBean;
-    }
-    */
-    
-    
 }
