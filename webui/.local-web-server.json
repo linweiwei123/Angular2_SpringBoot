@@ -1,0 +1,6 @@
+//command line to start the server is: ws
+{
+    "port":3000,
+    "directory": "./dist",
+    "spa": "./webui/index.html"
+}

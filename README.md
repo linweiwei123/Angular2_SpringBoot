@@ -16,61 +16,68 @@ Server Build Tools| Maven(Java)
 Gateway Service   | [Netflix zuul](https://github.com/Netflix/zuul)
 Localization      | <Pending>     
 
-
-## Build Instruction
-Prerequisite (Ensure you have this installed before proceeding further)
-- Java 8
-- Maven 3.3.9 (Ubuntu `sudo apt-get install maven`) 
-- npm 3.9.5,  (Ubuntu `sudo apt-get install npm`) 
-- Node 7.2.1, 
+## Folder Structure
 ```bash
-sudo npm cache clean -f
-sudo npm install -g n
-sudo n stable
+PROJECT_FOLDER
+│  README.md
+│  pom.xml           
+│
+└──[src]      
+│  └──[java]      
+│  └──[resources]
+│     └────[public]    #keep all html,css etc, resources that needs to be exposed to user without security
+│
+└──[config]            #contains SpringBoot application.properties
+│
+└──[target]            #Java build files, auto-created after running java build: mvn install
+│
+└──[webui]
+   │  package.json     
+   │  angular-cli.json #ng build configurations)
+   └──[node_modules]
+   └──[src]            #frontend source files
+   └──[dist]           #frontend build files, auto-created after running angular build: ng -build
+
 ```
+
+## Install Instruction
+
+### Prerequisites
+Ensure you have this installed before proceeding further
+- Java 8       (`sudo apt-get install default-jdk`)
+- Maven 3.3.9  (`sudo apt-get install maven`) 
+- Node 7.2.1,  (`sudo apt-get install nodejs`) 
+- npm 3.9.5,   (`sudo apt-get install npm`) 
 
 - Angular-cli (install using `sudo npm install -g angular-cli@latest`)
 - local-web-server ( install using `sudo npm install -g local-web-server`)
 
-Clone the repo in a folder
+
+## App Installation
+- Clone the repo in a folder
+- You must follow the installation sequence 
+    1. First Install Frontend (WebUI)
+    2. Then Install Backend  (Java Springboot)
 
 
-### Install REST Backend
-
-```bash
-#navigate to the root folder where pom.xml is present 
-mvn clean install
-```
-
-### Install Frontend 
-
-**1. Install/Upgrade angular-cli  ((if not yet installed))**
+### Install Frontend (Angular)
 
 ```bash
-#Install as global package
-npm uninstall -g angular-cli
-npm cache clean
-npm install -g angular-cli@1.0.0-beta.21
-
-#Then install as local package (make sure you are in the same folder where package.json is)
-rm -rf node_modules dist tmp
-npm install --save-dev angular-cli@1.0.0-beta.21
-```
-
-**2. Install a static WebUI server (if not yet installed)**
-we are using [local-web-server](https://github.com/75lb/local-web-server)
-```bash
-#configuration for local-web-server is stored in .local-web-server.json
-npm install -g local-web-server
-```
-
-**3. Install the webui app**
-```bash
-# Get and install all the packages 
+# Navigate to the folder where package.json is present (webui folder)
 npm install
 # build the project (this will put the files under dist folder)
 ng build
 ```
+The above steps will generate `dist` folder under `PROJECT_FOLDER\webui`
+while building the Java app content of this folder is copied onto `PROJECT_FOLDER\webui`
+
+
+### Install Backend (SpringBoot Java)
+```bash
+# Navigate to the root folder where pom.xml is present 
+mvn clean install
+```
+
 
 ### Start the API and WebUI server ###
 ```bash

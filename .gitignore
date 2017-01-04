@@ -1,39 +1,28 @@
-# compiled output API Server (Springboot tomcat)
+# Java Builds
 target/
 
-# compiled output WebUI
-/dist
-/tmp
+# WebUI Builds
+dist/
+tmp/
 
-# dependencies
-/node_modules
-/bower_components
+# WebUI dependencies
+node_modules/
+bower_components/
 
 # IDEs and editors
-/.idea
-/.vscode
-.project
-.classpath
-*.launch
+**/.idea
+**/.vscode
 .settings/
 
 # misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
-
-# e2e
-/e2e/*.js
-/e2e/*.map
+**/.sass-cache
+**/npm-debug.log
+typings/
 
 #System Files
-.DS_Store
-.project
-.settings
-.classpath
-.metadata
-Thumbs.db
+**/.DS_Store
+**/.project
+**/.settings
+**/.classpath
+**/.metadata
+**/Thumbs.db

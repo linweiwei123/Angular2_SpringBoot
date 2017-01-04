@@ -1,5 +1,0 @@
-{
-    "port":3000,
-    "directory": "./dist",
-    "spa": "./webui/index.html"
-}

@@ -13,10 +13,10 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.2.RELEASE</version>
+		<version>1.4.3.RELEASE</version>
 	</parent>
 	<build>
-		<sourceDirectory>api_src/main/java</sourceDirectory>
+		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -71,7 +71,7 @@
 				<executions>
 				  <!-- Build Webui (Angular) This will work only if angular-cli is installed -->
 
-				  <!-- copy Webui dist folder to api's resource/public -->
+				  <!-- copy Webui dist folder to src/resource/public -->
         	<execution>
 						<id>copy-angular</id>
 						<phase>prepare-package</phase>
@@ -80,10 +80,10 @@
 						</goals>
 						<configuration>
 							<!-- outputDirectory>${project.build.outputDirectory}/public</outputDirectory -->
-              <outputDirectory>${project.basedir}/api_src/main/resources/public</outputDirectory>
+              <outputDirectory>${project.basedir}/src/main/resources/public</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/dist</directory>
+									<directory>${project.basedir}/webui/dist</directory>
 								</resource>
 							</resources>
 						</configuration>
@@ -99,7 +99,7 @@
 							<outputDirectory>${project.build.outputDirectory}/public</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/api_src/main/resources/public</directory>
+									<directory>${project.basedir}/src/main/resources/public</directory>
 								</resource>
 							</resources>
 						</configuration>
