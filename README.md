@@ -29,10 +29,17 @@ Localization      | <Pending>
 ## Build Instruction
 Prerequisite (Ensure you have this installed before proceeding further)
 - Java 8
-- Maven 3.3.9
-- Node 7.2.1, npm 3.9.5
-- Angular-cli
-- local-web-server ( install using `npm install -g local-web-server`)
+- Maven 3.3.9 (Ubuntu `sudo apt-get install maven`) 
+- npm 3.9.5, (Ubuntu `sudo apt-get install npm`) 
+- Node 7.2.1, 
+```bash
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+```
+
+- Angular-cli (install using `sudo npm install -g angular-cli@latest`)
+- local-web-server ( install using `sudo npm install -g local-web-server`)
 
 Clone the repo in a folder
 
@@ -52,11 +59,11 @@ mvn clean install
 #Install as global package
 npm uninstall -g angular-cli
 npm cache clean
-npm install -g angular-cli@latest
+npm install -g angular-cli@1.0.0-beta.21
 
 #Then install as local package (make sure you are in the same folder where package.json is)
 rm -rf node_modules dist tmp
-npm install --save-dev angular-cli@latest
+npm install --save-dev angular-cli@1.0.0-beta.21
 ```
 
 **2. Install a static WebUI server (if not yet installed)**

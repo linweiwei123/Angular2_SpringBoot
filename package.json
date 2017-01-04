@@ -27,7 +27,7 @@
     "@types/hammerjs": "^2.0.33",
     "@types/node": "^6.0.45",
     "angular-cli": "1.0.0-beta.21",
-    "awesome-typescript-loader": "^3.0.0-beta.9",
+    "awesome-typescript-loader": "^3.0.0-beta.17",
     "local-web-server": "^1.2.6",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
