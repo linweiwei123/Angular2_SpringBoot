@@ -81,19 +81,13 @@ mvn clean install
 
 ### Start the API and WebUI server ###
 ```bash
-# Start API server (9119)
+# Start the server (9119)
 # port and other configurations for API servere is in [./cofig/application.properties](https://github.com/mrin9/Angular2_SpringBoot/blob/master/config/application.properties) file
 java -jar ./target/sonicwall-1.0.0.jar
-
-
-# Start WebUI server (3000)
-# port and other configurations for WebUI servere is in [local-web-server.json](https://github.com/mrin9/Angular2_SpringBoot/blob/master/.local-web-server.json) 
-ws
 
 ```
 
 - Access Server at <http://localhost:9119/index.html>
-- Access Client at <http://localhost:3000>
 
 **Login Credentials**
 ```

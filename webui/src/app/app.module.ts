@@ -7,7 +7,7 @@ import { RouterModule }   from '@angular/router';
 
 //Import Sub Modules in the app such as Routing Module
 import { AppRoutingModule } from './app-routing.module';
-
+import { ChartsModule } from './vendor_modules/chartjs/chart.module';
 
 // Compinents and Pages
 import { AppComponent }     from './app.component';
@@ -45,9 +45,10 @@ import 'hammerjs';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     MaterialModule.forRoot(),
-    HttpModule
+    HttpModule,
+    AppRoutingModule,   // local module
+    ChartsModule        // local module
   ],
 
   declarations: [

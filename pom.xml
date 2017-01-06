@@ -83,7 +83,7 @@
               <outputDirectory>${project.basedir}/src/main/resources/public</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.basedir}/webui/dist</directory>
+									<directory>${project.basedir}/cui/dist</directory>
 								</resource>
 							</resources>
 						</configuration>

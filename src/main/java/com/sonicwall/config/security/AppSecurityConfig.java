@@ -33,7 +33,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
         super(true);
     }
 
-
+//If Security is not working check application.properties if it is set to ignore
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
       http
@@ -56,9 +56,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
         // Allow CORS
         .addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
 		    // Custom Token based authentication based on the header previously given to the client
-        .addFilterBefore(new TokenFilter(tokenAuthService), UsernamePasswordAuthenticationFilter.class)
+         .addFilterBefore(new TokenFilter(tokenAuthService), UsernamePasswordAuthenticationFilter.class)
         // custom JSON based authentication by POST of {"username":"<name>","password":"<password>"} which sets the token header upon authentication
-        .addFilterBefore(new SessionFilter("/session", authenticationManager(), tokenAuthService), UsernamePasswordAuthenticationFilter.class)
+         .addFilterBefore(new SessionFilter("/session", authenticationManager(), tokenAuthService), UsernamePasswordAuthenticationFilter.class)
         ;
     }
 
