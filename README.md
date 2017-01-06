@@ -71,7 +71,7 @@ npm install
 ng build
 ```
 
-#### TO Install Angular Clarity UI
+#### To Install Angular Clarity UI
 ```bash
 # Navigate to PROJECT_FOLDER/cui (should cntain package.json )
 npm install
@@ -82,16 +82,16 @@ ng build
 
 ### Install Backend (SpringBoot Java)
 
-*** You may need to modify pom.xml ***
+#### You may need to modify pom.xml ####
 Based on the choice of frontend MaterialUI or ClarityUI you may need to modify pom.xml. In pom.xml there is a execution step `copy-material-or-clarity-ui` which copies the frontend `dist` folder
 onto SpringBoot resource folder make change to point to the appropriate dist folder based on your choice 
 - For Material UI it should be `${project.basedir}/webui/dist`
 - For Clarity UI it should be `${project.basedir}/cui/dist`
 
-*** Enabeling/Disabling spring security ***
+#### Enabeling/Disabling spring security ####
 to enable Spring Token security the setting is under `PROJECT_FOLDER/config/application.properties` comment `security.ignored=/**`
 
-*** Install ***
+#### Install ####
 ```bash
 # Navigate to the root folder where pom.xml is present 
 mvn clean install
