@@ -63,31 +63,24 @@ There are two frontends based on Angular 2
 - Clarity UI    `source in cui folder` 
 
 
-#### TO Install Angular Material UI
+#### To Install Angular Material UI
 ```bash
-# Navigate to the folder where package.json is present (webui folder)
+# Navigate to PROJECT_FOLDER/webui (should cntain package.json )
 npm install
 # build the project (this will put the files under dist folder)
 ng build
 ```
-The above steps will generate `dist` folder under `PROJECT_FOLDER/webui`
-while building the Java app content of this folder is copied onto `PROJECT_FOLDER/webui`
-
 
 #### TO Install Angular Clarity UI
 ```bash
-# Navigate to the folder where package.json is present (cui folder)
+# Navigate to PROJECT_FOLDER/cui (should cntain package.json )
 npm install
 # build the project (this will put the files under dist folder)
 ng build
 ```
-The above steps will generate `dist` folder under `PROJECT_FOLDER/cui`
-while building the Java app content of this folder is copied onto `PROJECT_FOLDER/cui`
-
 
 
 ### Install Backend (SpringBoot Java)
-
 
 *** You may need to modify pom.xml ***
 Based on the choice of frontend MaterialUI or ClarityUI you may need to modify pom.xml. In pom.xml there is a execution step `copy-material-or-clarity-ui` which copies the frontend `dist` folder
