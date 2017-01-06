@@ -4,7 +4,7 @@ Application to demonstrate various parts of a service oriented RESTfull applicat
 ### Technology Stack
 Component         | Technology
 ---               | ---
-Frontend          | [Angular 2](https://github.com/angular/angular) , [Material-Design](https://github.com/angular/material2),[ReactiveX]()  
+Frontend          | [Angular 2](https://github.com/angular/angular) , [Material-Design](https://github.com/angular/material2)
 Backend (REST)    | [SpringBoot 1.4](https://projects.spring.io/spring-boot) (Java)
 Security          | Token Based (Spring Security and [JWT](https://github.com/auth0/java-jwt) )
 REST Documentation| [Swagger UI / Springfox](https://github.com/springfox/springfox) and [ReDoc](https://github.com/Rebilly/ReDoc)
@@ -13,7 +13,6 @@ In Memory DB      | H2
 Persistence       | JPA
 Client Build Tools| [angular-cli](https://github.com/angular/angular-cli), Webpack, npm
 Server Build Tools| Maven(Java)
-Gateway Service   | [Netflix zuul](https://github.com/Netflix/zuul)
 Localization      | <Pending>     
 
 ## Folder Structure
@@ -37,7 +36,6 @@ PROJECT_FOLDER
    └──[node_modules]
    └──[src]            #frontend source files
    └──[dist]           #frontend build files, auto-created after running angular build: ng -build
-
 ```
 
 ## Install Instruction
@@ -48,7 +46,6 @@ Ensure you have this installed before proceeding further
 - Maven 3.3.9  (`sudo apt-get install maven`) 
 - Node 7.2.1,  (`sudo apt-get install nodejs`) 
 - npm 3.9.5,   (`sudo apt-get install npm`) 
-
 - Angular-cli (install using `sudo npm install -g angular-cli@latest`)
 - local-web-server ( install using `sudo npm install -g local-web-server`)
 
@@ -56,34 +53,62 @@ Ensure you have this installed before proceeding further
 ## App Installation
 - Clone the repo in a folder
 - You must follow the installation sequence 
-    1. First Install Frontend (WebUI)
-    2. Then Install Backend  (Java Springboot)
+    1. First Install Frontend 
+    2. Then Install Backend  
 
 
 ### Install Frontend (Angular)
+There are two frontends based on Angular 2 
+- Material UI 2 `source in webui folder` 
+- Clarity UI    `source in cui folder` 
 
+
+#### TO Install Angular Material UI
 ```bash
 # Navigate to the folder where package.json is present (webui folder)
 npm install
 # build the project (this will put the files under dist folder)
 ng build
 ```
-The above steps will generate `dist` folder under `PROJECT_FOLDER\webui`
-while building the Java app content of this folder is copied onto `PROJECT_FOLDER\webui`
+The above steps will generate `dist` folder under `PROJECT_FOLDER/webui`
+while building the Java app content of this folder is copied onto `PROJECT_FOLDER/webui`
+
+
+#### TO Install Angular Clarity UI
+```bash
+# Navigate to the folder where package.json is present (cui folder)
+npm install
+# build the project (this will put the files under dist folder)
+ng build
+```
+The above steps will generate `dist` folder under `PROJECT_FOLDER/cui`
+while building the Java app content of this folder is copied onto `PROJECT_FOLDER/cui`
+
 
 
 ### Install Backend (SpringBoot Java)
+
+
+*** You may need to modify pom.xml ***
+Based on the choice of frontend MaterialUI or ClarityUI you may need to modify pom.xml. In pom.xml there is a execution step `copy-material-or-clarity-ui` which copies the frontend `dist` folder
+onto SpringBoot resource folder make change to point to the appropriate dist folder based on your choice 
+- For Material UI it should be `${project.basedir}/webui/dist`
+- For Clarity UI it should be `${project.basedir}/cui/dist`
+
+*** Enabeling/Disabling spring security ***
+to enable Spring Token security the setting is under `PROJECT_FOLDER/config/application.properties` comment `security.ignored=/**`
+
+*** Install ***
 ```bash
 # Navigate to the root folder where pom.xml is present 
 mvn clean install
 ```
 
-
 ### Start the API and WebUI server ###
 ```bash
 # Start the server (9119)
 # port and other configurations for API servere is in [./cofig/application.properties](https://github.com/mrin9/Angular2_SpringBoot/blob/master/config/application.properties) file
-java -jar ./target/sonicwall-1.0.0.jar
+java -jar ./target/sonicwall_CASB-1.0.0.jar
 
 ```
 

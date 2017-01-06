@@ -73,7 +73,7 @@
 
 				  <!-- copy Webui dist folder to src/resource/public -->
         	<execution>
-						<id>copy-angular</id>
+						<id>copy-material-or-clarity-ui</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>copy-resources</goal>
